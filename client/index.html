@@ -46,6 +46,7 @@
 </head>
 
 <body>
+	<div id="app"></div>
 	<div id="top"></div>
 	<!-- Start Header Area -->
 	<header class="default-header">
@@ -780,8 +781,9 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-lg-6 mt-30">
-					<form id="contactForm" action="" method="post" class="contact-form">
+				<div id="contactUsFormContainer" class="col-lg-6 mt-30">
+				<!--
+					<form class="contact-form">
 						<div class="single-input color-2 mb-10">
 							<input type="text" name="fname" placeholder="Full Name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Full Name'"
 							 required>
@@ -805,6 +807,7 @@
 						</div>
 						<div class="alert"></div>
 					</form>
+				-->
 				</div>
 			</div>
 		</div>
@@ -862,7 +865,7 @@
 					<div class="single-footer-widget">
 						<h6 class="text-white text-uppercase mb-20">Free Driving Guides</h6>
 						<p>The Ultimate Guide to Passing Your G1, G2 and G Driving Test the First Time.</p>
-						<div id="freeGuideForm">
+						<div id="freeGuideFormContainer">
 							<!--<form target="_blank" novalidate class="subscription relative d-flex justify-content-center">
 								<input type="email" name="EMAIL" placeholder="Email address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email address'"
 								 required>

@@ -1,6 +1,3 @@
-import React from 'react';
-import { Field, reduxForm } from 'redux-form';
-
 const required = value => (value ? undefined : 'Required')
 const email = value =>
   value && !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(value)
@@ -19,18 +16,28 @@ const renderField = ({ input, label, type, meta: { touched, error, warning } }) 
   </div>
 )
 
+
+import React from 'react';
+import { Field, reduxForm } from 'redux-form';
+
 const FreeGuideForm = props => {
-  const { handleSubmit, pristine, reset, submitting } = props
+  const { handleSubmit, pristine, reset, submitting } = props;
   return (
-    <form onSubmit={handleSubmit}>
-      <Field type="email" name="email" placeholder="Email address" validate={[required, email]} />
-      <button type="submit" class="newsletter-btn" disabled={submitting}>
-        Hello
+    <form onSubmit={handleSubmit} class="subscription relative d-flex justify-content-center">
+      <div>
+        <Field name="email"
+          component="input"
+          type="email"
+          placeholder="Email" />
+        <button type="submit" class="newsletter-btn" name="subscribe">
+          <span class="lnr lnr-location"></span>
         </button>
+        <div class="info"></div>
+      </div>
     </form>
-  )
-}
+  );
+};
 
 export default reduxForm({
-  form: 'freeGuideForm'
-})(FreeGuideForm)
+  form: 'freeGuideForm', // a unique identifier for this form
+})(FreeGuideForm);
