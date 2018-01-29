@@ -16,15 +16,25 @@ import store from './components/store.js';
 import FreeGuideForm from './components/freeGuideForm';
 import ContactForm from './components/contactForm';
 
-class App extends React.Component {
+class FreeGuideApp extends React.Component {
   render() {
     return (
       <Provider store={ store }>
         <FreeGuideForm />
-
       </Provider>
     );
   }
 }
 
-ReactDOM.render(<App />, document.getElementById('freeGuideFormContainer'));
+class ContactFormApp extends React.Component {
+  render() {
+    return (
+      <Provider store={ store }>
+        <ContactForm />
+      </Provider>
+    );
+  }
+}
+
+ReactDOM.render(<FreeGuideApp />, document.getElementById('freeGuideFormContainer'));
+ReactDOM.render(<ContactFormApp />, document.getElementById('contactUsFormContainer'));

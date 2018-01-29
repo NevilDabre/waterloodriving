@@ -5016,16 +5016,16 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                ReactDOM.render(<WDSApp />, document.getElementById('root'));
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                ReactDOM.render(<Provider store={store}><FreeGuideForm /></Provider>, document.getElementById('freeGuideForm'));*/
 
-var App = function (_React$Component) {
-  _inherits(App, _React$Component);
+var FreeGuideApp = function (_React$Component) {
+  _inherits(FreeGuideApp, _React$Component);
 
-  function App() {
-    _classCallCheck(this, App);
+  function FreeGuideApp() {
+    _classCallCheck(this, FreeGuideApp);
 
-    return _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).apply(this, arguments));
+    return _possibleConstructorReturn(this, (FreeGuideApp.__proto__ || Object.getPrototypeOf(FreeGuideApp)).apply(this, arguments));
   }
 
-  _createClass(App, [{
+  _createClass(FreeGuideApp, [{
     key: 'render',
     value: function render() {
       return _react2.default.createElement(
@@ -5036,10 +5036,35 @@ var App = function (_React$Component) {
     }
   }]);
 
-  return App;
+  return FreeGuideApp;
 }(_react2.default.Component);
 
-_reactDom2.default.render(_react2.default.createElement(App, null), document.getElementById('freeGuideFormContainer'));
+var ContactFormApp = function (_React$Component2) {
+  _inherits(ContactFormApp, _React$Component2);
+
+  function ContactFormApp() {
+    _classCallCheck(this, ContactFormApp);
+
+    return _possibleConstructorReturn(this, (ContactFormApp.__proto__ || Object.getPrototypeOf(ContactFormApp)).apply(this, arguments));
+  }
+
+  _createClass(ContactFormApp, [{
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        _reactRedux.Provider,
+        { store: _store2.default },
+        _react2.default.createElement(_contactForm2.default, null)
+      );
+    }
+  }]);
+
+  return ContactFormApp;
+}(_react2.default.Component);
+
+_reactDom2.default.render(_react2.default.createElement(FreeGuideApp, null), document.getElementById('freeGuideFormContainer'));
+
+_reactDom2.default.render(_react2.default.createElement(ContactFormApp, null), document.getElementById('contactUsFormContainer'));
 
 /***/ }),
 /* 103 */
@@ -32283,21 +32308,41 @@ var ContactForm = function ContactForm(props) {
 
   return _react2.default.createElement(
     'form',
-    { onSubmit: handleSubmit, 'class': 'subscription relative d-flex justify-content-center' },
+    { onSubmit: handleSubmit, 'class': 'contact-form' },
     _react2.default.createElement(
       'div',
-      null,
-      _react2.default.createElement(_reduxForm.Field, { name: 'email',
-        component: 'input',
-        type: 'email',
-        placeholder: 'Email' }),
+      { 'class': 'single-input color-2 mb-10' },
+      _react2.default.createElement(_reduxForm.Field, { type: 'text', component: 'input', name: 'fname', placeholder: 'Full Name', onfocus: 'this.placeholder = \'\'', onblur: 'this.placeholder = \'Full Name\'' })
+    ),
+    _react2.default.createElement(
+      'div',
+      { 'class': 'single-input color-2 mb-10' },
+      _react2.default.createElement(_reduxForm.Field, { type: 'email', component: 'input', name: 'email', placeholder: 'Email Address', pattern: '[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{1,63}$',
+        onfocus: 'this.placeholder = \'\'', onblur: 'this.placeholder = \'Email Address\'' })
+    ),
+    _react2.default.createElement(
+      'div',
+      { 'class': 'single-input color-2 mb-10' },
+      _react2.default.createElement(_reduxForm.Field, { type: 'text', component: 'input', name: 'phone', placeholder: 'Phone Number', pattern: '\\D*([2-9]\\d{2})(\\D*)([2-9]\\d{2})(\\D*)(\\d{4})\\D*', onfocus: 'this.placeholder = \'\'',
+        onblur: 'this.placeholder = \'Phone Number\'' })
+    ),
+    _react2.default.createElement(
+      'div',
+      { 'class': 'single-input color-2 mb-10' },
+      _react2.default.createElement('textarea', { name: 'message', placeholder: 'Type your message here...', onfocus: 'this.placeholder = \'\'', onblur: 'this.placeholder = \'Type your message here...\'',
+        required: true })
+    ),
+    _react2.default.createElement(
+      'div',
+      { 'class': 'd-flex justify-content-end' },
       _react2.default.createElement(
         'button',
-        { type: 'submit', 'class': 'newsletter-btn', name: 'subscribe' },
-        _react2.default.createElement('span', { 'class': 'lnr lnr-location' })
-      ),
-      _react2.default.createElement('div', { 'class': 'info' })
-    )
+        { 'class': 'mt-10 primary-btn d-inline-flex text-uppercase align-items-center' },
+        'Send Message',
+        _react2.default.createElement('span', { 'class': 'lnr lnr-arrow-right' })
+      )
+    ),
+    _react2.default.createElement('div', { 'class': 'alert' })
   );
 };
 
