@@ -96,7 +96,7 @@
 						<h5 class="text-uppercase text-white">With Highest Passing Rate in Kitchener-Waterloo</h5>
 						<br>
 						<h1 class="text-uppercase text-white">Most-Trusted Driving School</h1>
-						<a href="#" class="primary-btn banner-btn">Register Now</a>
+						<a href="#" data-toggle="modal" data-target="#myModal" class="primary-btn banner-btn">Register Now</a>
 						<p class="text-white">Providing professional driving education since 2013
 							<br>Experience with adults and teenagers alike</p>
 					</div>
@@ -112,8 +112,9 @@
 				<div class="col-lg-10">
 					<div class="section-title text-center">
 						<p class="text-uppercase">About Our Driving School</p>
-						<h3>Waterloo driving school has been one of the most trusted driver's training school since 2013. We provide training in Kitchener, Cambridge and waterloo area. We have designed our training to be suitable for all ages and convinent
-							to all.</h3>
+						<h3>Waterloo driving school has been one of the most trusted driver's training school since 2013. We provide training in
+							Kitchener, Cambridge and waterloo area. We have designed our training to be suitable for all ages and convinent to
+							all.</h3>
 					</div>
 				</div>
 			</div>
@@ -123,7 +124,8 @@
 						<img src="img/s1.jpg" class="img-fluid" alt="">
 						<figcaption class="text-center">
 							<h5 class="text-uppercase">Guranteed Success</h5>
-							<p>Students who followed our instructions and paid attention to our in-car lessons have successfully passed their G2 and G tests in their first attempt.</p>
+							<p>Students who followed our instructions and paid attention to our in-car lessons have successfully passed their G2
+								and G tests in their first attempt.</p>
 						</figcaption>
 					</figure>
 				</div>
@@ -484,32 +486,14 @@
 			<div class="row">
 				<div class="modal fade" id="myModal" role="dialog">
 					<div class="modal-dialog">
-						<div class="modal-content">
+						<div  class="modal-content">
 							<div class="modal-header">
 								<button type="button" class="close" data-dismiss="modal">&times;</button>
 								<h4 class="modal-title">Registration</h4>
 							</div>
 							<div class="modal-body">
-								<div class="col-lg-12">
-									<form>
-										<div class="single-input color-2 mb-10">
-											<input type="text" name="fname" placeholder="Full Name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Full Name'"
-											 required>
-										</div>
-										<div class="single-input color-2 mb-10">
-											<input type="email" name="email" placeholder="Email Address" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$"
-											 onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email Address'" required>
-										</div>
-										<div class="single-input color-2 mb-10">
-											<input type="text" name="phone" placeholder="Phone Number" pattern="\D*([2-9]\d{2})(\D*)([2-9]\d{2})(\D*)(\d{4})\D*" onfocus="this.placeholder = ''"
-											 onblur="this.placeholder = 'Phone Number'" required>
-										</div>
-									</form>
+								<div id="registrationContainer" class="col-lg-12">
 								</div>
-							</div>
-							<div class="modal-footer">
-								<button type="button" class="primary-btn d-inline-flex text-uppercase align-items-center" data-dismiss="modal">Submit</a>
-								<button type="button" class="primary-btn d-inline-flex text-uppercase align-items-center" data-dismiss="modal">Close</button>
 							</div>
 						</div>
 					</div>
@@ -745,8 +729,8 @@
 			</div>
 			<div class="row">
 				<div class="col-lg-6 mt-30">
-					<p>We are proud that well over 90% of our students pass their road test and get their license from their first or
-						second attempt.</p>
+					<p>We are proud that well over 90% of our students pass their road test and get their license from their first or second
+						attempt.</p>
 					<br>
 					<p>If you would like to ask us any questions or book driving instruction, you can do so here. Please use contact us form
 						- we'll be happy to hear from you.</p>
@@ -778,32 +762,6 @@
 					</div>
 				</div>
 				<div id="contactUsFormContainer" class="col-lg-6 mt-30">
-				<!--
-					<form class="contact-form">
-						<div class="single-input color-2 mb-10">
-							<input type="text" name="fname" placeholder="Full Name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Full Name'"
-							 required>
-						</div>
-						<div class="single-input color-2 mb-10">
-							<input type="email" name="email" placeholder="Email Address" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$"
-							 onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email Address'" required>
-						</div>
-						<div class="single-input color-2 mb-10">
-							<input type="text" name="phone" placeholder="Phone Number" pattern="\D*([2-9]\d{2})(\D*)([2-9]\d{2})(\D*)(\d{4})\D*" onfocus="this.placeholder = ''"
-							 onblur="this.placeholder = 'Phone Number'" required>
-						</div>
-						<div class="single-input color-2 mb-10">
-							<textarea name="message" placeholder="Type your message here..." onfocus="this.placeholder = ''" onblur="this.placeholder = 'Type your message here...'"
-							 required></textarea>
-						</div>
-						<div class="d-flex justify-content-end">
-							<button class="mt-10 primary-btn d-inline-flex text-uppercase align-items-center">Send Message
-								<span class="lnr lnr-arrow-right"></span>
-							</button>
-						</div>
-						<div class="alert"></div>
-					</form>
-				-->
 				</div>
 			</div>
 		</div>
@@ -862,17 +820,6 @@
 						<h6 class="text-white text-uppercase mb-20">Free Driving Guides</h6>
 						<p>The Ultimate Guide to Passing Your G1, G2 and G Driving Test the First Time.</p>
 						<div id="freeGuideFormContainer">
-							<!--<form target="_blank" novalidate class="subscription relative d-flex justify-content-center">
-								<input type="email" name="EMAIL" placeholder="Email address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email address'"
-								 required>
-								<div style="position: absolute; left: -5000px;">
-									<input type="text" name="b_36c4fd991d266f23781ded980_aefe40901a" tabindex="-1" value="">
-								</div>
-								<button type="submit" class="newsletter-btn" name="subscribe">
-									<span class="lnr lnr-location"></span>
-								</button>
-								<div class="info"></div>
-							</form> -->
 						</div>
 					</div>
 				</div>

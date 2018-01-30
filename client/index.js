@@ -15,6 +15,7 @@ import { Provider } from 'react-redux';
 import store from './components/store.js';
 import FreeGuideForm from './components/freeGuideForm';
 import ContactForm from './components/contactForm';
+import RegistrationForm from './components/registrationForm';
 
 class FreeGuideApp extends React.Component {
   render() {
@@ -36,5 +37,16 @@ class ContactFormApp extends React.Component {
   }
 }
 
+class RegistrationFormApp extends React.Component {
+  render() {
+    return (
+      <Provider store={ store }>
+        <RegistrationForm />
+      </Provider>
+    );
+  }
+}
+
 ReactDOM.render(<FreeGuideApp />, document.getElementById('freeGuideFormContainer'));
 ReactDOM.render(<ContactFormApp />, document.getElementById('contactUsFormContainer'));
+ReactDOM.render(<RegistrationFormApp />, document.getElementById('registrationContainer'));

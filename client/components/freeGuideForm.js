@@ -1,38 +1,42 @@
+
+import React from 'react';
+import { Field, reduxForm } from 'redux-form';
+
+function submit(values) {
+  return sleep(1000).then(() => {
+      window.alert(`You submitted:\n\n${JSON.stringify(values, null, 2)}`)
+  })
+}
+
 const required = value => (value ? undefined : 'Required')
 const email = value =>
   value && !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(value)
     ? 'Invalid email address'
     : undefined
 
-const renderField = ({ input, label, type, meta: { touched, error, warning } }) => (
-  <div>
-    <label>{label}</label>
-    <div>
-      <input {...input} placeholder={label} type={type} />
-      {touched &&
-        ((error && <span>{error}</span>) ||
-          (warning && <span>{warning}</span>))}
-    </div>
-  </div>
-)
-
-
-import React from 'react';
-import { Field, reduxForm } from 'redux-form';
+    const renderField = ({input, label, placeholder, type, meta: {touched, error, warning}}) => (
+        <div>
+          <input {...input} placeholder={placeholder} type={type} />
+          {touched &&
+            ((error && <span>{error}</span>) ||
+              (warning && <span>{warning}</span>))}
+        </div>
+    )
 
 const FreeGuideForm = props => {
   const { handleSubmit, pristine, reset, submitting } = props;
   return (
-    <form onSubmit={handleSubmit} class="subscription relative d-flex justify-content-center">
+    <form onSubmit={handleSubmit(submit)} className="subscription relative d-flex justify-content-center">
       <div>
         <Field name="email"
-          component="input"
+          component={renderField}
           type="email"
-          placeholder="Email" />
-        <button type="submit" class="newsletter-btn" name="subscribe">
-          <span class="lnr lnr-location"></span>
+          placeholder="Email"
+          validate={[required, email]} />
+        <button type="submit" className="newsletter-btn" name="subscribe">
+          <span className="lnr lnr-location"></span>
         </button>
-        <div class="info"></div>
+        <div className="info"></div>
       </div>
     </form>
   );
