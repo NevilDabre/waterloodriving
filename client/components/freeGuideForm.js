@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
+import { required, email, renderField, sleep } from './WDSApp.lib';
 
 function submit(values) {
   return sleep(1000).then(() => {
@@ -8,20 +9,6 @@ function submit(values) {
   })
 }
 
-const required = value => (value ? undefined : 'Required')
-const email = value =>
-  value && !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(value)
-    ? 'Invalid email address'
-    : undefined
-
-    const renderField = ({input, label, placeholder, type, meta: {touched, error, warning}}) => (
-        <div>
-          <input {...input} placeholder={placeholder} type={type} />
-          {touched &&
-            ((error && <span>{error}</span>) ||
-              (warning && <span>{warning}</span>))}
-        </div>
-    )
 
 const FreeGuideForm = props => {
   const { handleSubmit, pristine, reset, submitting } = props;
