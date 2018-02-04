@@ -1,31 +1,50 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
+import { required, email, renderField, sleep, phoneNumber } from './WDSApp.lib';
+
+function submit(values) {
+  return sleep(1000).then(() => {
+      window.alert(`You submitted:\n\n${JSON.stringify(values, null, 2)}`)
+  })
+}
 
 const ContactForm = props => {
-  const { handleSubmit, pristine, reset, submitting } = props;
+  const { handleSubmit, pristine, reset, submitting } = props
   return (
-    <form onSubmit={handleSubmit} class="contact-form">
-    <div class="single-input color-2 mb-10">
-      <Field type="text" component="input" name="fname" placeholder="Full Name" onfocus="this.placeholder = ''" onBlur="this.placeholder = 'Full Name'" />
+    <form onSubmit={handleSubmit(submit)} className="contact-form">
+    <div className="single-input color-2 mb-10">
+      <Field name="fname"
+            component={renderField}
+            type="text"
+            placeholder="Full Name"
+            validate={required} />
     </div>
-    <div class="single-input color-2 mb-10">
-      <Field type="email" component="input" name="email" placeholder="Email Address" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$"
-       onfocus="this.placeholder = ''" onBlur="this.placeholder = 'Email Address'" />
+    <div className="single-input color-2 mb-10">
+      <Field name="email"
+            component={renderField}
+            type="email"
+            placeholder="Email Address"
+            validate={[required, email]} />
     </div>
-    <div class="single-input color-2 mb-10">
-      <Field type="text" component="input" name="phone" placeholder="Phone Number" pattern="\D*([2-9]\d{2})(\D*)([2-9]\d{2})(\D*)(\d{4})\D*" onfocus="this.placeholder = ''"
-       onBlur="this.placeholder = 'Phone Number'" />
+    <div className="single-input color-2 mb-10">
+      <Field name="phone"
+            type="number"
+            component={renderField}
+            placeholder="Phone Number"
+            validate={[required,phoneNumber]} />
     </div>
-    <div class="single-input color-2 mb-10">
-      <textarea name="message" placeholder="Type your message here..." onfocus="this.placeholder = ''" onBlur="this.placeholder = 'Type your message here...'"
-       required></textarea>
+    <div className="single-input color-2 mb-10">
+      <Field name="message"
+            component="textarea"
+            placeholder="Type your message here..."
+            validate={required} />
     </div>
-    <div class="d-flex justify-content-end">
-      <button class="mt-10 primary-btn d-inline-flex text-uppercase align-items-center">Send Message
-        <span class="lnr lnr-arrow-right"></span>
+    <div className="d-flex justify-content-end">
+      <button type="submit" className="mt-10 primary-btn d-inline-flex text-uppercase align-items-center">Send Message
+        <span className="lnr lnr-arrow-right"></span>
       </button>
     </div>
-    <div class="alert"></div>
+    <div className="alert"></div>
   </form>
   );
 };

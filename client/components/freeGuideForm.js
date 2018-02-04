@@ -8,7 +8,6 @@ function submit(values) {
   })
 }
 
-
 const FreeGuideForm = props => {
   const { handleSubmit, pristine, reset, submitting } = props;
   return (
