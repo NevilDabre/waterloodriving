@@ -1,14 +1,6 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
-import { required, email, renderField, sleep, phoneNumber } from './WDSApp.lib';
-import DatePicker from 'react-datepicker';
-import moment from 'moment';
-
-function submit(values) {
-  return sleep(1000).then(() => {
-    window.alert(`You submitted:\n\n${JSON.stringify(values, null, 2)}`)
-  })
-}
+import { required, email, renderField, sleep, phoneNumber, submit } from './WDSApp.lib';
 
 const RegistrationForm = props => {
   const { handleSubmit, pristine, reset, submitting } = props;
@@ -42,11 +34,14 @@ const RegistrationForm = props => {
           placeholder="Driving License Number" />
       </div>
       <div className="single-input color-2 mb-10">
-        <DatePicker name="expiryDate"/>
+        <Field type="text"
+          name="expiryDate"
+          component={renderField}
+          placeholder="Driving License Expiry Date" />
       </div>
       <div className="single-input color-2 mb-10 pull-right">
         <button type="submit" className="primary-btn d-inline-flex text-uppercase align-items-center">Submit</button>
-        <button type="button" className="primary-btn d-inline-flex text-uppercase align-items-center">Close</button>
+        <button type="button" data-dismiss="modal" className="primary-btn d-inline-flex text-uppercase align-items-center">Close</button>
       </div>
     </form>
   );

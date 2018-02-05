@@ -11,12 +11,12 @@ mongoose.Promise = global.Promise;
 
 var port = process.env.API_PORT || 3001;
 
-app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 //To prevent errors from Cross Origin Resource Sharing, we will set 
 //our headers to allow CORS with middleware like so:
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Credentials', 'true');
   res.setHeader('Access-Control-Allow-Methods', 'GET,HEAD,OPTIONS,POST,PUT,DELETE');
@@ -28,14 +28,16 @@ app.use(function(req, res, next) {
 mongoose.connect('mongodb://admin:admin2018@ds239117.mlab.com:39117/waterloodrivingdb')
 
 app.set('view engine', 'html');
-app.set('views',path.join(__dirname,'../client'));
+app.set('views', path.join(__dirname, '../client'));
 app.use(express.static(path.join(__dirname, '../client')));
 
- //Use our router configuration when we call /api
+
+//Use our router configuration when we call /api
 app.use('/', router);
+
 //starts the server and listens for requests
-app.listen(port, function() {
- console.log('api running on port ${port}');
+app.listen(port, function () {
+  console.log('api running on port ${port}');
 });
 
-module.exports=app;
+module.exports = app;

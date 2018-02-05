@@ -7,6 +7,8 @@ import FreeGuideForm from './components/freeGuideForm';
 import ContactForm from './components/contactForm';
 import RegistrationForm from './components/registrationForm';
 
+import ReduxToastr from 'react-redux-toastr';
+
 class FreeGuideApp extends React.Component {
   render() {
     return (
@@ -36,6 +38,19 @@ class RegistrationFormApp extends React.Component {
     );
   }
 }
+
+<Provider store={store}>
+<div>
+  <ReduxToastr
+    timeOut={4000}
+    newestOnTop={false}
+    preventDuplicates
+    position="top-left"
+    transitionIn="fadeIn"
+    transitionOut="fadeOut"
+    progressBar/>
+</div>
+</Provider>
 
 ReactDOM.render(<FreeGuideApp />, document.getElementById('freeGuideFormContainer'));
 ReactDOM.render(<ContactFormApp />, document.getElementById('contactUsFormContainer'));

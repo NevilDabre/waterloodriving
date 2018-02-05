@@ -1,12 +1,6 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
-import { required, email, renderField, sleep, phoneNumber } from './WDSApp.lib';
-
-function submit(values) {
-  return sleep(1000).then(() => {
-      window.alert(`You submitted:\n\n${JSON.stringify(values, null, 2)}`)
-  })
-}
+import { required, email, renderField, sleep, phoneNumber,submit } from './WDSApp.lib';
 
 const ContactForm = props => {
   const { handleSubmit, pristine, reset, submitting } = props

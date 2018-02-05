@@ -28,8 +28,34 @@ const renderField = ({ input, label, placeholder, type, meta: { touched, error, 
   </div>
 )
 
+function showMessage(message) {
+  var x = document.getElementById("snackbar")
+  x.className = "show";
+  x.innerText = message;
+  setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+}
+
 function sleep(time) {
   return new Promise((resolve) => setTimeout(resolve, time));
 }
 
-export { required, email, renderField, sleep, phone, phoneNumber }
+function submit(values) {
+  var url = !values.fname ? '/freeGuide': values.message ? '/contact': '/registration';
+
+  fetch(url, {
+    method: 'POST',
+    body: JSON.stringify(values),
+    headers: new Headers({
+      'Content-Type': 'application/json'
+    })
+  }).then(function (response) {
+    console.log(response.status);
+    if (response.status == 200) {
+      showMessage('Your information submitted successfully');
+    }
+  }).catch(function (err) {
+    console.log(err);
+  });
+}
+
+export { required, email, renderField, sleep, phone, phoneNumber, submit }
