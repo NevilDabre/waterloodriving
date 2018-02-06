@@ -1,0 +1,17 @@
+{
+    "email": {
+        "inquiryEmail": "info@waterloodrivingschool.com",
+        "responseEmail": "info@waterloodrivingschool.com",
+        "from": "info@waterloodrivingschool.com",
+        "to": "nevilhereonline@gmail.com",
+        "subject": "Waterloo Driving School",
+        "text": "Hello World!",
+        "html": "<strong> Hello World</strong>",
+        "host": "",
+        "port": 587,
+        "auth":{
+            "username": "waterloodrivingwebmaster@gmail.com",
+            "password": "waterloo2018"
+        }
+    }
+  }

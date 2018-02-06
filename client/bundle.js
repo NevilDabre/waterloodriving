@@ -33063,7 +33063,7 @@ var RegistrationForm = function RegistrationForm(props) {
       { className: 'single-input color-2 mb-10 pull-right' },
       _react2.default.createElement(
         'button',
-        { type: 'submit', 'data-dismiss': 'modal', className: 'primary-btn d-inline-flex text-uppercase align-items-center' },
+        { type: 'submit', className: 'primary-btn d-inline-flex text-uppercase align-items-center' },
         'Submit'
       ),
       _react2.default.createElement(
