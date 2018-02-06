@@ -10,7 +10,7 @@
         "host": "",
         "port": 587,
         "auth":{
-            "username": "waterloodrivingwebmaster@gmail.com",
+            "username": "waterloodrivingwebmaster",
             "password": "waterloo2018"
         }
     }

@@ -3,7 +3,7 @@ var registrations = require('../../models/registrations');
 var freeGuides = require('../../models/freeGuides');
 var mail = require('./mail.service');
 
-var value = {};
+var values = {};
 
 exports.contact = function (req, res) {
   var contact = new contacts({
@@ -21,7 +21,7 @@ exports.contact = function (req, res) {
     })
     .then(function (data) {
       if (data) {
-        values.text = 'Name = '+ req.body.fname + '\n Email = ' + req.body.email + '\n Phone = '+ req.body.phone + '\n Description = '+ req.body.description;
+        values.html = 'Name = '+ req.body.fname + '\n Email = ' + req.body.email + '\n Phone = '+ req.body.phone + '\n Description = '+ req.body.message;
         values.type == 'Contact Us';
 
         return mail.sendMail(values);
@@ -56,8 +56,8 @@ exports.registration = function (req, res) {
     })
     .then(function (data) {
       if (data) {
-        values.text = 'Name = '+ req.body.fname + '\n Email = ' + req.body.email + '\n Phone = '+ req.body.phone + '\n License Number = '+ (req.body.drivingLicenseNumber ? req.body.drivingLicenseNumber : 'Not Available') + '\n Date Of Expiry = '+ (req.body.date_of_expiry ? req.body.date_of_expiry : 'Not Available');
-        values.type == 'Registration';
+        values.html = 'Name = '+ req.body.fname + '\n Email = ' + req.body.email + '\n Phone = '+ req.body.phone + '\n License Number = '+ (req.body.drivingLicenseNumber ? req.body.drivingLicenseNumber : 'Not Available') + '\n Date Of Expiry = '+ (req.body.date_of_expiry ? req.body.date_of_expiry : 'Not Available');
+        values.type = 'Registration';
 
         return mail.sendMail(values);
       }
@@ -85,9 +85,9 @@ exports.freeGuide = function (req, res) {
     })
     .then(function (data) {
       if (data) {
-        values.text = 'Email = '+ req.body.email;
-        values.type == 'Free Guide';
-
+        values.html = 'Email = '+ req.body.email;
+        values.type = 'Free Guide';
+        values.email = req.body.email;
         return mail.sendMail(values);
       }
     })
