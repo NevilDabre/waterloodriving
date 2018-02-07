@@ -5,7 +5,7 @@ import { required, email, renderField, sleep, phoneNumber, submit } from './WDSA
 const RegistrationForm = props => {
   const { handleSubmit, pristine, reset, submitting } = props;
   return (
-    <form onSubmit={handleSubmit(submit)}>
+    <form id="registrationForm" onSubmit={handleSubmit(submit)}>
       <div className="single-input color-2 mb-10">
         <Field type="text"
           component={renderField}

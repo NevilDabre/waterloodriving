@@ -28,7 +28,6 @@ exports.contact = function (req, res) {
       }
     })
     .then(function(info){
-      console.log(info.response);
       res.json({ statusMessage: 'Contact information sent successfully' });
     })
     .catch(function (err) {
@@ -63,7 +62,6 @@ exports.registration = function (req, res) {
       }
     })
     .then(function(info){
-      console.log(info.response);
       res.json({ statusMessage: 'Registration request sent successfully' });
     })
     .catch(function (err) {
@@ -92,7 +90,6 @@ exports.freeGuide = function (req, res) {
       }
     })
     .then(function(info){
-      console.log(info.response);
       res.json({ statusMessage: 'Free Guide request sent successfully' });
     })
     .catch(function (err) {

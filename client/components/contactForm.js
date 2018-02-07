@@ -5,7 +5,7 @@ import { required, email, renderField, sleep, phoneNumber,submit } from './WDSAp
 const ContactForm = props => {
   const { handleSubmit, pristine, reset, submitting } = props
   return (
-    <form onSubmit={handleSubmit(submit)} className="contact-form">
+    <form id="contactForm" onSubmit={handleSubmit(submit)} className="contact-form">
     <div className="single-input color-2 mb-10">
       <Field name="fname"
             component={renderField}

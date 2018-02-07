@@ -5,7 +5,7 @@ import { required, email, renderField, sleep, submit } from './WDSApp.lib';
 const FreeGuideForm = props => {
   const { handleSubmit, pristine, reset, submitting } = props;
   return (
-    <form onSubmit={handleSubmit(submit)} className="subscription relative d-flex justify-content-center">
+    <form id="freeGuideForm" onSubmit={handleSubmit(submit)} className="subscription relative d-flex justify-content-center">
       <div>
         <Field name="email"
           component={renderField}

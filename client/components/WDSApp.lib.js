@@ -39,6 +39,21 @@ function sleep(time) {
   return new Promise((resolve) => setTimeout(resolve, time));
 }
 
+function resetForm(type){
+  console.log('here + ' + type);
+  switch(type){
+    case '/freeGuide':
+            document.getElementById('freeGuideForm').reset();
+            break;
+    case '/contact':
+            document.getElementById('contactForm').reset();
+            break;
+    case '/registration':
+            document.getElementById('registrationForm').reset();
+            break;
+  }
+}
+
 function submit(values) {
   var url = !values.fname ? '/freeGuide': values.message ? '/contact': '/registration';
 
@@ -49,9 +64,9 @@ function submit(values) {
       'Content-Type': 'application/json'
     })
   }).then(function (response) {
-    console.log(response.status);
     if (response.status == 200) {
       showMessage('Your information submitted successfully');
+      resetForm(url);
     }
   }).catch(function (err) {
     console.log(err);

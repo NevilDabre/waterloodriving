@@ -2645,6 +2645,21 @@ function sleep(time) {
   });
 }
 
+function resetForm(type) {
+  console.log('here + ' + type);
+  switch (type) {
+    case '/freeGuide':
+      document.getElementById('freeGuideForm').reset();
+      break;
+    case '/contact':
+      document.getElementById('contactForm').reset();
+      break;
+    case '/registration':
+      document.getElementById('registrationForm').reset();
+      break;
+  }
+}
+
 function submit(values) {
   var url = !values.fname ? '/freeGuide' : values.message ? '/contact' : '/registration';
 
@@ -2655,9 +2670,9 @@ function submit(values) {
       'Content-Type': 'application/json'
     })
   }).then(function (response) {
-    console.log(response.status);
     if (response.status == 200) {
       showMessage('Your information submitted successfully');
+      resetForm(url);
     }
   }).catch(function (err) {
     console.log(err);
@@ -32879,7 +32894,7 @@ var FreeGuideForm = function FreeGuideForm(props) {
 
   return _react2.default.createElement(
     'form',
-    { onSubmit: handleSubmit(_WDSApp.submit), className: 'subscription relative d-flex justify-content-center' },
+    { id: 'freeGuideForm', onSubmit: handleSubmit(_WDSApp.submit), className: 'subscription relative d-flex justify-content-center' },
     _react2.default.createElement(
       'div',
       null,
@@ -32931,7 +32946,7 @@ var ContactForm = function ContactForm(props) {
 
   return _react2.default.createElement(
     'form',
-    { onSubmit: handleSubmit(_WDSApp.submit), className: 'contact-form' },
+    { id: 'contactForm', onSubmit: handleSubmit(_WDSApp.submit), className: 'contact-form' },
     _react2.default.createElement(
       'div',
       { className: 'single-input color-2 mb-10' },
@@ -33014,7 +33029,7 @@ var RegistrationForm = function RegistrationForm(props) {
 
   return _react2.default.createElement(
     'form',
-    { onSubmit: handleSubmit(_WDSApp.submit) },
+    { id: 'registrationForm', onSubmit: handleSubmit(_WDSApp.submit) },
     _react2.default.createElement(
       'div',
       { className: 'single-input color-2 mb-10' },
