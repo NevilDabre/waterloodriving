@@ -3,7 +3,7 @@
         "inquiryEmail": "info@waterloodrivingschool.com",
         "responseEmail": "info@waterloodrivingschool.com",
         "from": "info@waterloodrivingschool.com",
-        "to": "nevilhereonline@gmail.com",
+        "to": "info@waterloodrivingschool.com",
         "subject": "Waterloo Driving School",
         "text": "Hello World!",
         "html": "<strong> Hello World</strong>",
