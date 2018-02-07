@@ -9,8 +9,8 @@ var app = express();
 var mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 
-var port = process.env.PORT || process.env.API_PORT ? process.env.API_PORT : 3001 ;
-
+var port = process.env.PORT || 5000 ; //heroku
+//var port = process.env.PORT || process.env.API_PORT ? process.env.API_PORT : 3001 ; //local
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
