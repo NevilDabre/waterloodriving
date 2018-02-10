@@ -8,6 +8,7 @@ let clientMailOptions = {
 
 let adminMailOptions = {
   from: config.email.from, // sender address
+  cc: config.email.cc,
   to: config.email.to, // list of receivers
 };
 
