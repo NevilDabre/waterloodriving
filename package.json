@@ -28,11 +28,13 @@
     "redux": "^3.7.2",
     "redux-form": "^7.2.1",
     "redux-promise": "^0.5.3",
-    "sass-loader": "^6.0.6"
+    "sass-loader": "^6.0.6",
+    "to-absolute-path": "^1.0.0"
   },
   "scripts": {
     "webpack": "webpack",
     "start": "npm run webpack && nodemon --exec babel-node -- bin/www",
-    "scss": "node-sass --watch scss -o -css"
+    "scss": "node-sass --watch scss -o -css",
+    "heroku-postbuild": "cd client && npm install && npm run build"
   }
 }

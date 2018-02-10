@@ -21,10 +21,9 @@ exports.contact = function (req, res) {
     })
     .then(function (data) {
       if (data) {
-        values.html = 'Name = '+ req.body.fname + '\n Email = ' + req.body.email + '\n Phone = '+ req.body.phone + '\n Description = '+ req.body.message;
-        values.type == 'Contact Us';
+        contact.type = 'Contact Us';
 
-        return mail.sendMail(values);
+        return mail.sendMail(contact);
       }
     })
     .then(function(info){
@@ -55,10 +54,9 @@ exports.registration = function (req, res) {
     })
     .then(function (data) {
       if (data) {
-        values.html = 'Name = '+ req.body.fname + '\n Email = ' + req.body.email + '\n Phone = '+ req.body.phone + '\n License Number = '+ (req.body.drivingLicenseNumber ? req.body.drivingLicenseNumber : 'Not Available') + '\n Date Of Expiry = '+ (req.body.date_of_expiry ? req.body.date_of_expiry : 'Not Available');
-        values.type = 'Registration';
+        registration.type = 'Registration';
 
-        return mail.sendMail(values);
+        return mail.sendMail(registration);
       }
     })
     .then(function(info){
@@ -83,10 +81,8 @@ exports.freeGuide = function (req, res) {
     })
     .then(function (data) {
       if (data) {
-        values.html = 'Email = '+ req.body.email;
-        values.type = 'Free Guide';
-        values.email = req.body.email;
-        return mail.sendMail(values);
+        freeGuide.type = 'Free Guide';
+        return mail.sendMail(freeGuide);
       }
     })
     .then(function(info){
